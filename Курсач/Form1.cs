@@ -12,66 +12,94 @@ namespace Курсач
 {
     public partial class Form1 : Form
     {
-        List<Particle> particles = new List<Particle>();//Список частиц
+        List<Emitter> emitters = new List<Emitter>();
+        Emitter emitter;
+        GravityPoint point;//первая точка
+        GravityPoint point1;//первая точка
+
         public Form1()
         {
             InitializeComponent();
-
             picDisplay.Image = new Bitmap(picDisplay.Width, picDisplay.Height);//Привязка изображения
 
-            for (var i = 0; i < 500; ++i) //Генерация 500 частиц
+            this.emitter = new Emitter
             {
-                var particle = new Particle();
-                particle.X = picDisplay.Image.Width / 2; //Перенос частиц 
-                particle.Y = picDisplay.Image.Height / 2;              // в центр изображения
+                Direction = 0,
+                Spreading = 10,
+                SpeedMin = 10,
+                SpeedMax = 10,
+                ColorFrom = Color.Gold,
+                ColorTo = Color.FromArgb(0, Color.Red),
+                ParticlesPerTick = 10,
+                X = picDisplay.Width / 2,
+                Y = picDisplay.Height / 2,
+            };
+            emitters.Add(this.emitter);
 
-                particles.Add(particle); //Добавление списка
-            }
-        }
-
-        public void UpdateState() //Обновление логики
-        {
-            foreach(var particle in particles) //пересчитывание положения частиц в соответствии с их направлением движения и скоростью.
+            point = new GravityPoint
             {
-                particle.Life -= 1;//Уменьшение здоровья
-                if (particle.Life < 0)
-                {
-                    particle.Life = 20 + Particle.rand.Next(100);//Восстановление здоровья
-                    particle.X = picDisplay.Image.Width / 2; //Перенос частиц 
-                    particle.Y = picDisplay.Image.Height / 2;              // в центр изображения
+                X = picDisplay.Width / 2 + 100,
+                Y = picDisplay.Height / 2
+            };
 
-                    particle.Direction = Particle.rand.Next(360);//рандомное направление движения
-                    particle.Speed = 1 + Particle.rand.Next(10);//рандомная скорость
-                    particle.Radius = 2 + Particle.rand.Next(10);//рандомный радиус
-
-                }
-                else
-                {
-                    var directionInRadians = particle.Direction / 180 * Math.PI;
-                    particle.X += (float)(particle.Speed * Math.Cos(directionInRadians));
-                    particle.Y -= (float)(particle.Speed * Math.Sin(directionInRadians));
-                }
-            }
-        }
-
-        public void Render(Graphics g) //Отрисовка
-        {
-            foreach (var particle in particles) //отрисовка частиц
+            point1 = new GravityPoint
             {
-                particle.Draw(g);
-            }
+                X = picDisplay.Width / 2 - 100,
+                Y = picDisplay.Height / 2
+            };
+
+            emitter.impactPoints.Add(point);
+            emitter.impactPoints.Add(point1);
         }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            UpdateState();//Каждый тик обновляет систему
+            emitter.UpdateState();//обновление эмиттера
             using (var g = Graphics.FromImage(picDisplay.Image))
             {
-                g.Clear(Color.White);//Очистка экрана, заливка формы в белый цвет
-                Render(g); //Рендеринг системы
+                g.Clear(Color.Black);//Очистка экрана, заливка формы в чёрный цвет
+                emitter.Render(g); //Рендеринг системы через эмиттер
             }
             picDisplay.Invalidate();//обновление формы
+        }
+
+        //Фиксация положения мыши
+        private void picDisplay_MouseMove(object sender, MouseEventArgs e)
+        {
+            //положение мыши в переменные для хранения положения мыши
+            foreach (var emitter in emitters)
+            {
+                emitter.MousePositionX = e.X;
+                emitter.MousePositionY = e.Y;
+
+                point1.X = e.X;
+                point1.Y = e.Y;
+            }
+        }
+
+        private void tbDirection_Scroll(object sender, EventArgs e)
+        {
+            emitter.Direction = tbDirection.Value;
+            lblDirection.Text = $"{tbDirection.Value}°";
+        }
+
+        private void tbRazbros_Scroll(object sender, EventArgs e)
+        {
+            emitter.Spreading = tbRazbros.Value;
+            lblRazbros.Text = $"{tbRazbros.Value}°";
+        }
+
+        private void tbGraviton_Scroll(object sender, EventArgs e)
+        {
+            point.Power = tbGraviton.Value;
+            lblKryg.Text = $"{tbGraviton.Value}°";
+        }
+
+        private void tbGraviton1_Scroll(object sender, EventArgs e)
+        {
+            point1.Power = tbGraviton1.Value;
+            lblKryg1.Text = $"{tbGraviton1.Value}°";
         }
     }
 }
