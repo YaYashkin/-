@@ -11,6 +11,7 @@ namespace Курсач
     {
         public float X;
         public float Y;
+        
 
         // абстрактный метод с помощью которого изменяутся состояние частиц
         public abstract void ImpactParticle(Particle particle);
@@ -74,6 +75,7 @@ namespace Курсач
     {
         public int schet = 0;
         public float radius = 20;
+        public Color color = Color.Yellow;
 
         public override void ImpactParticle(Particle particle)
         {
@@ -92,7 +94,7 @@ namespace Курсач
         {
             g.DrawEllipse(
                 new Pen(
-                    new SolidBrush(Color.Yellow), 2),
+                    new SolidBrush(color), 2),
                     X - radius,
                     Y - radius,
                     radius * 2,
@@ -104,10 +106,10 @@ namespace Курсач
             g.DrawString(
                 $"{schet}",
                 new Font("Colibri", 10),
-                new SolidBrush(Color.Yellow),
+                new SolidBrush(color),
                 X,
                 Y
-                );
+            );
         }
     }
 }

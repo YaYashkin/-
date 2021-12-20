@@ -64,8 +64,6 @@ namespace Курсач
                     // гравитация воздействует на вектор скорости, поэтому пересчитываем его
                     particle.SpeedX += GravitationX;
                     particle.SpeedY += GravitationY;
-
-                    
                 }
             }
                 while(particlesToCreate >= 1)

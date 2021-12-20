@@ -111,10 +111,26 @@ namespace Курсач
                     {
                         X = e.X,
                         Y = e.Y,
-                        radius = tbSchet.Value
+                        radius = tbSchet.Value,
                     }
-                    );
+                    ); 
             }
+            else if(e.Button == MouseButtons.Middle)
+            {
+                //Brush br = new SolidBrush(Color.Green);
+                Schetchik sc = new Schetchik();
+                sc.color = Color.Green;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            splitContainer1.Panel2Collapsed = splitContainer1.Panel2Collapsed ? false : true;
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            label1.ForeColor = Color.Red;
         }
     }
 }
