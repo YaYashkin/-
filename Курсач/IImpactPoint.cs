@@ -11,7 +11,8 @@ namespace Курсач
     {
         public float X;
         public float Y;
-        
+        public int count = 0;
+
 
         // абстрактный метод с помощью которого изменяутся состояние частиц
         public abstract void ImpactParticle(Particle particle);
@@ -68,6 +69,41 @@ namespace Курсач
 
             particle.SpeedX -= gX * Power / r2;
             particle.SpeedY -= gY * Power / r2;
+        }
+    }
+
+    public class Cyrcle : IImpactPoint
+    {
+        public int Raduis = 30;
+        public override void ImpactParticle(Particle particle)
+        {
+            
+            float gX = X - particle.X;
+            float gY = Y - particle.Y;
+            double r2 = Math.Sqrt(gX * gX + gY * gY);
+
+            if (r2 - particle.Radius <= Raduis)
+            {
+                particle.color1 = Color.Green;
+                particle.color2 = Color.Green;
+                count++;
+            }
+            else if (r2 - particle.Radius > Raduis)
+            {
+                particle.color1 = particle.FromColor;
+                particle.color2 = particle.ToColor;
+            }
+        }
+        public override void Render(Graphics g)
+        {
+            g.DrawEllipse(new Pen(new SolidBrush(Color.Green), 2), X - Raduis, Y - Raduis, Raduis * 2, Raduis * 2);
+            g.DrawString(
+                $"{count}",
+                new Font("Colibri", 10),
+                new SolidBrush(Color.Red),
+                X-10,
+                Y-10
+            );
         }
     }
 

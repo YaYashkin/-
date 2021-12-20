@@ -19,6 +19,12 @@ namespace Курсач
         public float Life; // здоровье частицы
         public static Random rand = new Random();//Генератор случайных чисел
 
+        public Color FromColor;
+        public Color ToColor;
+
+        public Color color1;
+        public Color color2;
+
         public Particle() //Констуруктор, который создаёт кастомную частицу
         {
             var direction = (double)rand.Next(360);//
@@ -45,8 +51,7 @@ namespace Курсач
     }
     public class ParticleColorful : Particle
     {
-        public Color FromColor;
-        public Color ToColor;
+        
         public static Color MixColor(Color color1, Color color2, float k)
         {
             return Color.FromArgb(
@@ -59,7 +64,7 @@ namespace Курсач
         public override void Draw(Graphics g)
         {
             float k = Math.Min(1f, Life / 100);
-            var color = MixColor(ToColor, FromColor, k);
+            var color = MixColor(color1, color2, k);
             var b = new SolidBrush(color);
             g.FillEllipse(b, X - Radius, Y - Radius, Radius * 2, Radius * 2);
             b.Dispose();

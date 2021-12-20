@@ -40,10 +40,7 @@ namespace Курсач
             this.label2 = new System.Windows.Forms.Label();
             this.tbGraviton = new System.Windows.Forms.TrackBar();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbGraviton1 = new System.Windows.Forms.TrackBar();
-            this.label4 = new System.Windows.Forms.Label();
             this.lblKryg = new System.Windows.Forms.Label();
-            this.lblKryg1 = new System.Windows.Forms.Label();
             this.tbSchet = new System.Windows.Forms.TrackBar();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -54,7 +51,6 @@ namespace Курсач
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRazbros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbGraviton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSchet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -148,26 +144,6 @@ namespace Курсач
             this.label3.TabIndex = 8;
             this.label3.Text = "Первый круг";
             // 
-            // tbGraviton1
-            // 
-            this.tbGraviton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tbGraviton1.Location = new System.Drawing.Point(3, 257);
-            this.tbGraviton1.Maximum = 100;
-            this.tbGraviton1.Name = "tbGraviton1";
-            this.tbGraviton1.Size = new System.Drawing.Size(152, 56);
-            this.tbGraviton1.TabIndex = 9;
-            this.tbGraviton1.Scroll += new System.EventHandler(this.tbGraviton1_Scroll);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label4.Location = new System.Drawing.Point(3, 237);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 17);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Второй круг";
-            // 
             // lblKryg
             // 
             this.lblKryg.AutoSize = true;
@@ -177,19 +153,10 @@ namespace Курсач
             this.lblKryg.Size = new System.Drawing.Size(0, 17);
             this.lblKryg.TabIndex = 11;
             // 
-            // lblKryg1
-            // 
-            this.lblKryg1.AutoSize = true;
-            this.lblKryg1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblKryg1.Location = new System.Drawing.Point(96, 237);
-            this.lblKryg1.Name = "lblKryg1";
-            this.lblKryg1.Size = new System.Drawing.Size(0, 17);
-            this.lblKryg1.TabIndex = 12;
-            // 
             // tbSchet
             // 
             this.tbSchet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tbSchet.Location = new System.Drawing.Point(3, 336);
+            this.tbSchet.Location = new System.Drawing.Point(4, 255);
             this.tbSchet.Maximum = 100;
             this.tbSchet.Name = "tbSchet";
             this.tbSchet.Size = new System.Drawing.Size(152, 56);
@@ -201,7 +168,7 @@ namespace Курсач
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label5.Location = new System.Drawing.Point(3, 316);
+            this.label5.Location = new System.Drawing.Point(4, 235);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 17);
             this.label5.TabIndex = 14;
@@ -238,15 +205,12 @@ namespace Курсач
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
             this.splitContainer1.Panel2.Controls.Add(this.tbSchet);
-            this.splitContainer1.Panel2.Controls.Add(this.label4);
-            this.splitContainer1.Panel2.Controls.Add(this.lblKryg1);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.lblKryg);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.lblRazbros);
             this.splitContainer1.Panel2.Controls.Add(this.lblDirection);
             this.splitContainer1.Panel2.Controls.Add(this.tbRazbros);
-            this.splitContainer1.Panel2.Controls.Add(this.tbGraviton1);
             this.splitContainer1.Panel2.Controls.Add(this.tbGraviton);
             this.splitContainer1.Size = new System.Drawing.Size(186, 536);
             this.splitContainer1.SplitterDistance = 56;
@@ -269,7 +233,7 @@ namespace Курсач
             // lblSchet
             // 
             this.lblSchet.AutoSize = true;
-            this.lblSchet.Location = new System.Drawing.Point(72, 316);
+            this.lblSchet.Location = new System.Drawing.Point(73, 235);
             this.lblSchet.Name = "lblSchet";
             this.lblSchet.Size = new System.Drawing.Size(0, 17);
             this.lblSchet.TabIndex = 15;
@@ -298,7 +262,6 @@ namespace Курсач
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRazbros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbGraviton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSchet)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -322,10 +285,7 @@ namespace Курсач
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TrackBar tbGraviton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TrackBar tbGraviton1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblKryg;
-        private System.Windows.Forms.Label lblKryg1;
         private System.Windows.Forms.TrackBar tbSchet;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;

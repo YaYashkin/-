@@ -17,10 +17,13 @@ namespace Курсач
         GravityPoint point;//первая точка
         GravityPoint point1;//первая точка
 
+        Cyrcle cyrcle;
+
         public Form1()
         {
             InitializeComponent();
             picDisplay.Image = new Bitmap(picDisplay.Width, picDisplay.Height);//Привязка изображения
+            picDisplay.MouseWheel += picDisplay_MouseWheel;
 
             this.emitter = new Emitter
             {
@@ -42,14 +45,21 @@ namespace Курсач
                 Y = picDisplay.Height / 2
             };
 
-            point1 = new GravityPoint
+            /*point1 = new GravityPoint
+            {
+                X = picDisplay.Width / 2 - 100,
+                Y = picDisplay.Height / 2
+            };*/
+
+            cyrcle = new Cyrcle
             {
                 X = picDisplay.Width / 2 - 100,
                 Y = picDisplay.Height / 2
             };
 
+            emitter.impactPoints.Add(cyrcle);
             emitter.impactPoints.Add(point);
-            emitter.impactPoints.Add(point1);
+            //emitter.impactPoints.Add(point1);
         }
 
 
@@ -73,8 +83,8 @@ namespace Курсач
                 emitter.MousePositionX = e.X;
                 emitter.MousePositionY = e.Y;
 
-                point1.X = e.X;
-                point1.Y = e.Y;
+                cyrcle.X = e.X;
+                cyrcle.Y = e.Y;
             }
         }
 
@@ -96,15 +106,9 @@ namespace Курсач
             lblKryg.Text = $"{tbGraviton.Value}°";
         }
 
-        private void tbGraviton1_Scroll(object sender, EventArgs e)
-        {
-            point1.Power = tbGraviton1.Value;
-            lblKryg1.Text = $"{tbGraviton1.Value}°";
-        }
-
         private void picDisplay_MouseClick(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)//Нажимаем на левую кнопку мыши
+            if (e.Button == MouseButtons.Left)//Нажимаем на левую кнопку мыши
             {
                 emitter.impactPoints.Add(//Добавляем счётчик
                     new Schetchik
@@ -113,26 +117,26 @@ namespace Курсач
                         Y = e.Y,
                         radius = tbSchet.Value,
                     }
-                    ); 
+                    );
             }
-            else if(e.Button == MouseButtons.Right)//Нажимаем на праваую кнопку мыши
+            else if (e.Button == MouseButtons.Right)//Нажимаем на праваую кнопку мыши
             {
-                foreach(var point in emitter.impactPoints.ToArray())
+                foreach (var point in emitter.impactPoints.ToArray())
                 {
-                    if(point is Schetchik)//если круг - счётчик
+                    if (point is Schetchik)//если круг - счётчик
                     {
                         Schetchik sc = point as Schetchik;
                         float gX = sc.X - e.X;
                         float gY = sc.Y - e.Y;
                         double r = Math.Sqrt(gX * gX + gY * gY);
-                        if(r<= sc.radius)
+                        if (r <= sc.radius)
                         {
                             emitter.impactPoints.Remove(point);//Удаляем счётчик
                         }
                     }
                 }
             }
-            else if(e.Button == MouseButtons.Middle)
+            else if (e.Button == MouseButtons.Middle)
             {
                 foreach (var point in emitter.impactPoints.ToArray())
                 {
@@ -164,6 +168,26 @@ namespace Курсач
         private void tbSchet_Scroll(object sender, EventArgs e)
         {
             lblSchet.Text = $"{tbSchet.Value}";
+        }
+
+        private void picDisplay_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0)
+            {
+                cyrcle.Raduis += 5;
+                if(cyrcle.Raduis > 200)
+                {
+                    cyrcle.Raduis = 30;
+                }
+            }
+            else if (e.Delta < 0)
+            {
+                cyrcle.Raduis -= 5;
+                if(cyrcle.Raduis < 0)
+                {
+                    cyrcle.Raduis = 30;
+                }
+            }
         }
     }
 }

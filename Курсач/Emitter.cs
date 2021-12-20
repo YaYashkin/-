@@ -93,6 +93,9 @@ namespace Курсач
             particle.X = X; //Перенос частиц 
             particle.Y = Y;
 
+            particle.color1 = ColorFrom;
+            particle.color2 = ColorTo;
+
             var direction = Direction
                 +(double)Particle.rand.Next(Spreading)
                 - Spreading / 2;
