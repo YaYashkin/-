@@ -27,7 +27,7 @@ namespace Курсач
         }
     }
 
-    public class GravityPoint : IImpactPoint
+    public class GravityPoint : IImpactPoint//круг притяжения
     {
         public int Power = 100;// сила притяжения
 
@@ -45,7 +45,7 @@ namespace Курсач
         }
         public override void Render(Graphics g)
         {
-            // буду рисовать окружность с диаметром равным Power
+            //рисуем окружность с диаметром равным Power
             g.DrawEllipse(
                    new Pen(Color.Red),
                    X - Power / 2,
@@ -56,10 +56,9 @@ namespace Курсач
         }
     }
 
-    public class AntiGravityPoint : IImpactPoint
+    public class AntiGravityPoint : IImpactPoint //круг отталкивания
     {
         public int Power = 100;// сила притяжения
-
         public override void ImpactParticle(Particle particle)
         {
             float gX = X - particle.X;

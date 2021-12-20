@@ -55,7 +55,7 @@ namespace Курсач
             // 
             this.picDisplay.Location = new System.Drawing.Point(13, 18);
             this.picDisplay.Name = "picDisplay";
-            this.picDisplay.Size = new System.Drawing.Size(933, 572);
+            this.picDisplay.Size = new System.Drawing.Size(988, 572);
             this.picDisplay.TabIndex = 0;
             this.picDisplay.TabStop = false;
             this.picDisplay.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picDisplay_MouseMove);
@@ -175,7 +175,7 @@ namespace Курсач
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 657);
+            this.ClientSize = new System.Drawing.Size(1012, 664);
             this.Controls.Add(this.lblKryg1);
             this.Controls.Add(this.lblKryg);
             this.Controls.Add(this.label4);

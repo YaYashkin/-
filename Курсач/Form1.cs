@@ -32,7 +32,7 @@ namespace Курсач
                 ColorTo = Color.FromArgb(0, Color.Red),
                 ParticlesPerTick = 10,
                 X = picDisplay.Width / 2,
-                Y = picDisplay.Height / 2,
+                Y = picDisplay.Height / 2
             };
             emitters.Add(this.emitter);
 
