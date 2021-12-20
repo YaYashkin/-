@@ -48,6 +48,8 @@ namespace Курсач
             this.label7 = new System.Windows.Forms.Label();
             this.lblSchet = new System.Windows.Forms.Label();
             this.tbDirection = new System.Windows.Forms.TrackBar();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRazbros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbGraviton)).BeginInit();
@@ -200,6 +202,7 @@ namespace Курсач
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.lblSchet);
             this.splitContainer1.Panel2.Controls.Add(this.tbDirection);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
@@ -248,6 +251,16 @@ namespace Курсач
             this.tbDirection.TabIndex = 1;
             this.tbDirection.Scroll += new System.EventHandler(this.tbDirection_Scroll);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(7, 318);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(148, 23);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -293,6 +306,8 @@ namespace Курсач
         private System.Windows.Forms.TrackBar tbDirection;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblSchet;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 

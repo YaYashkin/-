@@ -189,5 +189,12 @@ namespace Курсач
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            cyrcle.col = colorDialog1.Color;
+            button2.BackColor = cyrcle.col;
+        }
     }
 }

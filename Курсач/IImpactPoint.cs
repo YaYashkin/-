@@ -12,6 +12,7 @@ namespace Курсач
         public float X;
         public float Y;
         public int count = 0;
+        public List<Particle> particles = new List<Particle>();
 
 
         // абстрактный метод с помощью которого изменяутся состояние частиц
@@ -72,22 +73,23 @@ namespace Курсач
         }
     }
 
+
+    
     public class Cyrcle : IImpactPoint
     {
+        public Color col = Color.Green;
         public int Raduis = 30;
         public override void ImpactParticle(Particle particle)
         {
-            
             float gX = X - particle.X;
             float gY = Y - particle.Y;
             double r2 = Math.Sqrt(gX * gX + gY * gY);
 
             if (r2 - particle.Radius <= Raduis)
             {
-                particle.color1 = Color.Green;
-                particle.color2 = Color.Green;
+                particle.color1 = col;
+                particle.color2 = col;
                 count++;
-                
             }
             else if (r2 - particle.Radius > Raduis)
             {
@@ -97,7 +99,7 @@ namespace Курсач
         }
         public override void Render(Graphics g)
         {
-            g.DrawEllipse(new Pen(new SolidBrush(Color.Green), 2), X - Raduis, Y - Raduis, Raduis * 2, Raduis * 2);
+            g.DrawEllipse(new Pen(new SolidBrush(col), 2), X - Raduis, Y - Raduis, Raduis * 2, Raduis * 2);
             g.DrawString(
                 $"{count}",
                 new Font("Colibri", 10),
