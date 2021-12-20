@@ -17,36 +17,24 @@ namespace Курсач
         GravityPoint point;//первая точка
         GravityPoint point1;//первая точка
 
-        public PainterPoint ris1;
-        public PainterPoint ris2;
-
         public Form1()
         {
             InitializeComponent();
             picDisplay.Image = new Bitmap(picDisplay.Width, picDisplay.Height);//Привязка изображения
 
-            this.emitter = new TopEmitter
+            this.emitter = new Emitter
             {
-                Width = picDisplay.Width,
-                GravitationY = 0.2f,
+                Direction = 0,
+                Spreading = 10,
+                SpeedMin = 10,
+                SpeedMax = 10,
+                ColorFrom = Color.Gold,
+                ColorTo = Color.FromArgb(0, Color.Red),
                 ParticlesPerTick = 10,
+                X = picDisplay.Width / 2,
+                Y = picDisplay.Height / 2
             };
             emitters.Add(this.emitter);
-
-            ris1 = new PainterPoint
-            {
-                PointColor = Color.Blue,
-                X = (picDisplay.Width / 2) - 200,
-                Y = (picDisplay.Height / 2) - 100,
-                Rad = 50,
-            };
-            ris2 = new PainterPoint
-            {
-                PointColor = Color.Red,
-                X = (picDisplay.Width / 2) + 200,
-                Y = (picDisplay.Height / 2) - 100,
-                Rad = 50,
-            };
 
             point = new GravityPoint
             {

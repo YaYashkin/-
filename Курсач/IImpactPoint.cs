@@ -74,8 +74,7 @@ namespace Курсач
     public class Schetchik : IImpactPoint
     {
         public int schet = 0;
-        public float radius = 20;
-        public Color color = Color.Yellow;
+        public float radius = 10;
 
         public override void ImpactParticle(Particle particle)
         {
@@ -92,9 +91,15 @@ namespace Курсач
 
         public override void Render(Graphics g)
         {
+            g.FillEllipse(
+                new SolidBrush(Color.FromArgb(220, 20, 60)), 
+                X - radius, 
+                Y - radius,
+                radius * 2,
+                radius * 2);
             g.DrawEllipse(
                 new Pen(
-                    new SolidBrush(color), 2),
+                    new SolidBrush(Color.Yellow), 2),
                     X - radius,
                     Y - radius,
                     radius * 2,
@@ -106,36 +111,10 @@ namespace Курсач
             g.DrawString(
                 $"{schet}",
                 new Font("Colibri", 10),
-                new SolidBrush(color),
+                new SolidBrush(Color.Yellow),
                 X,
                 Y
             );
-        }
-    }
-
-    public class PainterPoint : IImpactPoint
-    {
-        public Color PointColor = Color.White;
-        public float Rad = 15;
-
-        public override void ImpactParticle(Particle particle)
-        {
-            //Проверка попадания частицы в радиус круга
-            float gX = X - particle.X;
-            float gY = Y - particle.Y;
-
-            double r = Math.Sqrt(gX * gX + gY * gY);
-
-            if (r - particle.Radius < Rad)
-            {
-                particle.color2 = PointColor;
-                particle.color1 = Color.FromArgb(0, PointColor);
-            }
-        }
-
-        public override void Render(Graphics g)
-        {
-            g.DrawEllipse(new Pen(new SolidBrush(PointColor), 2), X - Rad, Y - Rad, Rad * 2, Rad * 2);
         }
     }
 }

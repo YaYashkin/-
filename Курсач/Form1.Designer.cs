@@ -48,8 +48,8 @@ namespace Курсач
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tbDirection = new System.Windows.Forms.TrackBar();
             this.label7 = new System.Windows.Forms.Label();
+            this.tbDirection = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRazbros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbGraviton)).BeginInit();
@@ -193,6 +193,7 @@ namespace Курсач
             this.tbSchet.Name = "tbSchet";
             this.tbSchet.Size = new System.Drawing.Size(152, 56);
             this.tbSchet.TabIndex = 13;
+            this.tbSchet.Value = 10;
             // 
             // label5
             // 
@@ -245,18 +246,8 @@ namespace Курсач
             this.splitContainer1.Panel2.Controls.Add(this.tbGraviton1);
             this.splitContainer1.Panel2.Controls.Add(this.tbGraviton);
             this.splitContainer1.Size = new System.Drawing.Size(186, 536);
-            this.splitContainer1.SplitterDistance = 57;
+            this.splitContainer1.SplitterDistance = 56;
             this.splitContainer1.TabIndex = 16;
-            // 
-            // tbDirection
-            // 
-            this.tbDirection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.tbDirection.Location = new System.Drawing.Point(6, 20);
-            this.tbDirection.Maximum = 359;
-            this.tbDirection.Name = "tbDirection";
-            this.tbDirection.Size = new System.Drawing.Size(160, 56);
-            this.tbDirection.TabIndex = 1;
-            this.tbDirection.Scroll += new System.EventHandler(this.tbDirection_Scroll);
             // 
             // label7
             // 
@@ -271,6 +262,16 @@ namespace Курсач
             this.label7.TabIndex = 0;
             this.label7.Text = "Параметры частиц";
             this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // tbDirection
+            // 
+            this.tbDirection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.tbDirection.Location = new System.Drawing.Point(6, 20);
+            this.tbDirection.Maximum = 359;
+            this.tbDirection.Name = "tbDirection";
+            this.tbDirection.Size = new System.Drawing.Size(160, 56);
+            this.tbDirection.TabIndex = 1;
+            this.tbDirection.Scroll += new System.EventHandler(this.tbDirection_Scroll);
             // 
             // Form1
             // 
