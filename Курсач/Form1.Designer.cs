@@ -49,6 +49,7 @@ namespace Курсач
             this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label7 = new System.Windows.Forms.Label();
+            this.lblSchet = new System.Windows.Forms.Label();
             this.tbDirection = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRazbros)).BeginInit();
@@ -194,6 +195,7 @@ namespace Курсач
             this.tbSchet.Size = new System.Drawing.Size(152, 56);
             this.tbSchet.TabIndex = 13;
             this.tbSchet.Value = 10;
+            this.tbSchet.Scroll += new System.EventHandler(this.tbSchet_Scroll);
             // 
             // label5
             // 
@@ -231,6 +233,7 @@ namespace Курсач
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.lblSchet);
             this.splitContainer1.Panel2.Controls.Add(this.tbDirection);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
@@ -262,6 +265,14 @@ namespace Курсач
             this.label7.TabIndex = 0;
             this.label7.Text = "Параметры частиц";
             this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // lblSchet
+            // 
+            this.lblSchet.AutoSize = true;
+            this.lblSchet.Location = new System.Drawing.Point(72, 316);
+            this.lblSchet.Name = "lblSchet";
+            this.lblSchet.Size = new System.Drawing.Size(0, 17);
+            this.lblSchet.TabIndex = 15;
             // 
             // tbDirection
             // 
@@ -321,6 +332,7 @@ namespace Курсач
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TrackBar tbDirection;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblSchet;
     }
 }
 

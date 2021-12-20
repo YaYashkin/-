@@ -88,18 +88,31 @@ namespace Курсач
                 schet++;
             }
         }
+        public Color color;
 
         public override void Render(Graphics g)
         {
-            g.FillEllipse(
-                new SolidBrush(Color.FromArgb(220, 20, 60)), 
-                X - radius, 
-                Y - radius,
-                radius * 2,
-                radius * 2);
+            if (schet <= 5000) color = Color.FromArgb(205, 92, 92);
+            else if (schet > 5001 && schet <= 10000) color = Color.FromArgb(255, 160, 122);
+            else if (schet > 10001 && schet <= 15000) color = Color.FromArgb(220, 20, 60);
+            else if (schet > 15001 && schet <= 20000) color = Color.FromArgb(255, 0, 0);
+            else if (schet > 20001 && schet <= 25000) color = Color.FromArgb(255, 20, 147);
+            else if (schet > 25001 && schet <= 30000) color = Color.FromArgb(255, 182, 193);
+            else if (schet > 30001 && schet <= 35000) color = Color.FromArgb(255, 215, 0);
+            else if (schet > 35001 && schet <= 40000) color = Color.FromArgb(255, 0, 255);
+            else if (schet > 40001 && schet <= 45000) color = Color.FromArgb(139, 0, 139);
+            else if (schet > 45001 && schet <= 50000) color = Color.FromArgb(106, 90, 205);
+            else if (schet > 50001 && schet <= 55000) color = Color.FromArgb(173, 255, 47);
+            else if (schet > 55001 && schet <= 60000) color = Color.FromArgb(0, 250, 154);
+            else if (schet > 60001 && schet <= 65000) color = Color.FromArgb(0, 0, 255);
+            else if (schet > 65001 && schet <= 70000) color = Color.FromArgb(119, 136, 153);
+            else if (schet > 70001 && schet <= 75000) color = Color.FromArgb(47, 79, 79);
+            else if (schet > 75001 && schet <= 80000) color = Color.FromArgb(220, 220, 220);
+            else if (schet > 80001 && schet <= 85000) color = Color.FromArgb(123, 104, 238);
+            else color = Color.Aquamarine;
             g.DrawEllipse(
                 new Pen(
-                    new SolidBrush(Color.Yellow), 2),
+                    new SolidBrush(color), 5),
                     X - radius,
                     Y - radius,
                     radius * 2,
@@ -108,10 +121,11 @@ namespace Курсач
             var str = new StringFormat();
             str.Alignment = StringAlignment.Center;
             str.LineAlignment = StringAlignment.Center;
+            
             g.DrawString(
                 $"{schet}",
                 new Font("Colibri", 10),
-                new SolidBrush(Color.Yellow),
+                new SolidBrush(color),
                 X,
                 Y
             );

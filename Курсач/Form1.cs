@@ -143,5 +143,10 @@ namespace Курсач
         {
             label1.ForeColor = Color.Red;
         }
+
+        private void tbSchet_Scroll(object sender, EventArgs e)
+        {
+            lblSchet.Text = $"{tbSchet.Value}";
+        }
     }
 }
