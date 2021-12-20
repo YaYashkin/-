@@ -87,6 +87,7 @@ namespace Курсач
                 particle.color1 = Color.Green;
                 particle.color2 = Color.Green;
                 count++;
+                
             }
             else if (r2 - particle.Radius > Raduis)
             {
@@ -102,7 +103,7 @@ namespace Курсач
                 new Font("Colibri", 10),
                 new SolidBrush(Color.Red),
                 X-10,
-                Y-10
+                Y+10
             );
         }
     }
