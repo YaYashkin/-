@@ -69,4 +69,45 @@ namespace Курсач
             particle.SpeedY -= gY * Power / r2;
         }
     }
+
+    public class Schetchik : IImpactPoint
+    {
+        public int schet = 0;
+        public float radius = 20;
+
+        public override void ImpactParticle(Particle particle)
+        {
+            float gX = X - particle.X;
+            float gY = Y - particle.Y;
+            double r = Math.Sqrt(gX * gX + gY * gY);
+
+            if (r - particle.Radius < radius)
+            {
+                particle.Life = 0;
+                schet++;
+            }
+        }
+
+        public override void Render(Graphics g)
+        {
+            g.DrawEllipse(
+                new Pen(
+                    new SolidBrush(Color.Yellow), 2),
+                    X - radius,
+                    Y - radius,
+                    radius * 2,
+                    radius * 2
+            );
+            var str = new StringFormat();
+            str.Alignment = StringAlignment.Center;
+            str.LineAlignment = StringAlignment.Center;
+            g.DrawString(
+                $"{schet}",
+                new Font("Colibri", 10),
+                new SolidBrush(Color.Yellow),
+                X,
+                Y
+                );
+        }
+    }
 }

@@ -44,11 +44,13 @@ namespace Курсач
             this.label4 = new System.Windows.Forms.Label();
             this.lblKryg = new System.Windows.Forms.Label();
             this.lblKryg1 = new System.Windows.Forms.Label();
+            this.tbSchet = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDirection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRazbros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbGraviton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbGraviton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSchet)).BeginInit();
             this.SuspendLayout();
             // 
             // picDisplay
@@ -58,6 +60,7 @@ namespace Курсач
             this.picDisplay.Size = new System.Drawing.Size(988, 572);
             this.picDisplay.TabIndex = 0;
             this.picDisplay.TabStop = false;
+            this.picDisplay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picDisplay_MouseClick);
             this.picDisplay.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picDisplay_MouseMove);
             // 
             // timer1
@@ -171,11 +174,20 @@ namespace Курсач
             this.lblKryg1.Size = new System.Drawing.Size(0, 17);
             this.lblKryg1.TabIndex = 12;
             // 
+            // tbSchet
+            // 
+            this.tbSchet.Location = new System.Drawing.Point(784, 598);
+            this.tbSchet.Maximum = 100;
+            this.tbSchet.Name = "tbSchet";
+            this.tbSchet.Size = new System.Drawing.Size(152, 56);
+            this.tbSchet.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 664);
+            this.Controls.Add(this.tbSchet);
             this.Controls.Add(this.lblKryg1);
             this.Controls.Add(this.lblKryg);
             this.Controls.Add(this.label4);
@@ -196,6 +208,7 @@ namespace Курсач
             ((System.ComponentModel.ISupportInitialize)(this.tbRazbros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbGraviton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbGraviton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSchet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,6 +230,7 @@ namespace Курсач
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblKryg;
         private System.Windows.Forms.Label lblKryg1;
+        private System.Windows.Forms.TrackBar tbSchet;
     }
 }
 

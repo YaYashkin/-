@@ -101,5 +101,20 @@ namespace Курсач
             point1.Power = tbGraviton1.Value;
             lblKryg1.Text = $"{tbGraviton1.Value}°";
         }
+
+        private void picDisplay_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                emitter.impactPoints.Add(
+                    new Schetchik
+                    {
+                        X = e.X,
+                        Y = e.Y,
+                        radius = tbSchet.Value
+                    }
+                    );
+            }
+        }
     }
 }
