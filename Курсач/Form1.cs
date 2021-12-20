@@ -17,24 +17,36 @@ namespace Курсач
         GravityPoint point;//первая точка
         GravityPoint point1;//первая точка
 
+        public PainterPoint ris1;
+        public PainterPoint ris2;
+
         public Form1()
         {
             InitializeComponent();
             picDisplay.Image = new Bitmap(picDisplay.Width, picDisplay.Height);//Привязка изображения
 
-            this.emitter = new Emitter
+            this.emitter = new TopEmitter
             {
-                Direction = 0,
-                Spreading = 10,
-                SpeedMin = 10,
-                SpeedMax = 10,
-                ColorFrom = Color.Gold,
-                ColorTo = Color.FromArgb(0, Color.Red),
+                Width = picDisplay.Width,
+                GravitationY = 0.2f,
                 ParticlesPerTick = 10,
-                X = picDisplay.Width / 2,
-                Y = picDisplay.Height / 2
             };
             emitters.Add(this.emitter);
+
+            ris1 = new PainterPoint
+            {
+                PointColor = Color.Blue,
+                X = (picDisplay.Width / 2) - 200,
+                Y = (picDisplay.Height / 2) - 100,
+                Rad = 50,
+            };
+            ris2 = new PainterPoint
+            {
+                PointColor = Color.Red,
+                X = (picDisplay.Width / 2) + 200,
+                Y = (picDisplay.Height / 2) - 100,
+                Rad = 50,
+            };
 
             point = new GravityPoint
             {
@@ -104,9 +116,9 @@ namespace Курсач
 
         private void picDisplay_MouseClick(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
+            if(e.Button == MouseButtons.Left)//Нажимаем на левую кнопку мыши
             {
-                emitter.impactPoints.Add(
+                emitter.impactPoints.Add(//Добавляем счётчик
                     new Schetchik
                     {
                         X = e.X,
@@ -115,11 +127,22 @@ namespace Курсач
                     }
                     ); 
             }
-            else if(e.Button == MouseButtons.Middle)
+            else if(e.Button == MouseButtons.Right)//Нажимаем на праваую кнопку мыши
             {
-                //Brush br = new SolidBrush(Color.Green);
-                Schetchik sc = new Schetchik();
-                sc.color = Color.Green;
+                foreach(var point in emitter.impactPoints.ToArray())
+                {
+                    if(point is Schetchik)//если круг - счётчик
+                    {
+                        Schetchik sc = point as Schetchik;
+                        float gX = sc.X - e.X;
+                        float gY = sc.Y - e.Y;
+                        double r = Math.Sqrt(gX * gX + gY * gY);
+                        if(r<= sc.radius)
+                        {
+                            emitter.impactPoints.Remove(point);//Удаляем счётчик
+                        }
+                    }
+                }
             }
         }
 

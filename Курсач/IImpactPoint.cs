@@ -112,4 +112,30 @@ namespace Курсач
             );
         }
     }
+
+    public class PainterPoint : IImpactPoint
+    {
+        public Color PointColor = Color.White;
+        public float Rad = 15;
+
+        public override void ImpactParticle(Particle particle)
+        {
+            //Проверка попадания частицы в радиус круга
+            float gX = X - particle.X;
+            float gY = Y - particle.Y;
+
+            double r = Math.Sqrt(gX * gX + gY * gY);
+
+            if (r - particle.Radius < Rad)
+            {
+                particle.color2 = PointColor;
+                particle.color1 = Color.FromArgb(0, PointColor);
+            }
+        }
+
+        public override void Render(Graphics g)
+        {
+            g.DrawEllipse(new Pen(new SolidBrush(PointColor), 2), X - Rad, Y - Rad, Rad * 2, Rad * 2);
+        }
+    }
 }

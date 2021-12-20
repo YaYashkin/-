@@ -19,6 +19,9 @@ namespace Курсач
         public float Life; // здоровье частицы
         public static Random rand = new Random();//Генератор случайных чисел
 
+        public Color color1;
+        public Color color2;
+
         public Particle() //Констуруктор, который создаёт кастомную частицу
         {
             var direction = (double)rand.Next(360);//
