@@ -132,6 +132,23 @@ namespace Курсач
                     }
                 }
             }
+            else if(e.Button == MouseButtons.Middle)
+            {
+                foreach (var point in emitter.impactPoints.ToArray())
+                {
+                    if (point is Schetchik)//если круг - счётчик
+                    {
+                        Schetchik sc = point as Schetchik;
+                        float gX = sc.X - e.X;
+                        float gY = sc.Y - e.Y;
+                        double r = Math.Sqrt(gX * gX + gY * gY);
+                        if (r <= sc.radius)
+                        {
+                            sc.schet = 0;
+                        }
+                    }
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

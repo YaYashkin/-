@@ -75,6 +75,7 @@ namespace Курсач
     {
         public int schet = 0;
         public float radius = 10;
+        public Color color;
 
         public override void ImpactParticle(Particle particle)
         {
@@ -88,8 +89,6 @@ namespace Курсач
                 schet++;
             }
         }
-        public Color color;
-
         public override void Render(Graphics g)
         {
             if (schet <= 5000) color = Color.FromArgb(205, 92, 92);
