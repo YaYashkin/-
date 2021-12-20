@@ -15,8 +15,6 @@ namespace Курсач
         List<Emitter> emitters = new List<Emitter>();
         Emitter emitter;
         GravityPoint point;//первая точка
-        GravityPoint point1;//первая точка
-
         Cyrcle cyrcle;
 
         public Form1()
@@ -45,12 +43,6 @@ namespace Курсач
                 Y = picDisplay.Height / 2
             };
 
-            /*point1 = new GravityPoint
-            {
-                X = picDisplay.Width / 2 - 100,
-                Y = picDisplay.Height / 2
-            };*/
-
             cyrcle = new Cyrcle
             {
                 X = picDisplay.Width / 2 - 100,
@@ -59,7 +51,6 @@ namespace Курсач
 
             emitter.impactPoints.Add(cyrcle);
             emitter.impactPoints.Add(point);
-            //emitter.impactPoints.Add(point1);
         }
 
 
@@ -117,7 +108,7 @@ namespace Курсач
                         Y = e.Y,
                         radius = tbSchet.Value,
                     }
-                    );
+                );
             }
             else if (e.Button == MouseButtons.Right)//Нажимаем на праваую кнопку мыши
             {
