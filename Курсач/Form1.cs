@@ -53,9 +53,10 @@ namespace Курсач
             emitter.impactPoints.Add(point);
         }
 
-
         private void timer1_Tick(object sender, EventArgs e)
         {
+            cyrcle.par.Clear();
+            
             emitter.UpdateState();//обновление эмиттера
             using (var g = Graphics.FromImage(picDisplay.Image))
             {

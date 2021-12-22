@@ -46,10 +46,10 @@ namespace Курсач
             this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label7 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.lblSchet = new System.Windows.Forms.Label();
             this.tbDirection = new System.Windows.Forms.TrackBar();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRazbros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbGraviton)).BeginInit();
@@ -93,7 +93,7 @@ namespace Курсач
             this.tbRazbros.Location = new System.Drawing.Point(3, 99);
             this.tbRazbros.Maximum = 359;
             this.tbRazbros.Name = "tbRazbros";
-            this.tbRazbros.Size = new System.Drawing.Size(160, 56);
+            this.tbRazbros.Size = new System.Drawing.Size(163, 56);
             this.tbRazbros.TabIndex = 3;
             this.tbRazbros.Scroll += new System.EventHandler(this.tbRazbros_Scroll);
             // 
@@ -132,7 +132,7 @@ namespace Курсач
             this.tbGraviton.Location = new System.Drawing.Point(3, 178);
             this.tbGraviton.Maximum = 100;
             this.tbGraviton.Name = "tbGraviton";
-            this.tbGraviton.Size = new System.Drawing.Size(152, 56);
+            this.tbGraviton.Size = new System.Drawing.Size(163, 56);
             this.tbGraviton.TabIndex = 7;
             this.tbGraviton.Scroll += new System.EventHandler(this.tbGraviton_Scroll);
             // 
@@ -161,7 +161,7 @@ namespace Курсач
             this.tbSchet.Location = new System.Drawing.Point(4, 255);
             this.tbSchet.Maximum = 100;
             this.tbSchet.Name = "tbSchet";
-            this.tbSchet.Size = new System.Drawing.Size(152, 56);
+            this.tbSchet.Size = new System.Drawing.Size(162, 56);
             this.tbSchet.TabIndex = 13;
             this.tbSchet.Value = 10;
             this.tbSchet.Scroll += new System.EventHandler(this.tbSchet_Scroll);
@@ -179,7 +179,7 @@ namespace Курсач
             // button1
             // 
             this.button1.BackgroundImage = global::Курсач.Properties.Resources._1;
-            this.button1.Font = new System.Drawing.Font("Goudy Stout", 7.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Goudy Stout", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Orange;
             this.button1.Location = new System.Drawing.Point(12, 554);
             this.button1.Name = "button1";
@@ -233,6 +233,19 @@ namespace Курсач
             this.label7.Text = "Параметры частиц";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::Курсач.Properties.Resources._2;
+            this.button2.Font = new System.Drawing.Font("Goudy Stout", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.button2.Location = new System.Drawing.Point(7, 318);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(159, 35);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Цвет радара";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // lblSchet
             // 
             this.lblSchet.AutoSize = true;
@@ -250,16 +263,6 @@ namespace Курсач
             this.tbDirection.Size = new System.Drawing.Size(160, 56);
             this.tbDirection.TabIndex = 1;
             this.tbDirection.Scroll += new System.EventHandler(this.tbDirection_Scroll);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(7, 318);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 23);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 

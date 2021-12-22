@@ -33,6 +33,7 @@ namespace Курсач
         public Color ColorFrom = Color.White;//начальный цвет частиц
         public Color ColorTo = Color.FromArgb(0, Color.Black);//конечный цвет частиц
 
+        Cyrcle cyrcle = new Cyrcle();
 
         public void UpdateState() //Обновление логики
         {

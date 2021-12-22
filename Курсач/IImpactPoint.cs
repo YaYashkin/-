@@ -9,9 +9,10 @@ namespace Курсач
 {
     public abstract class IImpactPoint
     {
+        public List<Particle> par = new List<Particle>();
         public float X;
         public float Y;
-        public int count = 0;
+        
         public List<Particle> particles = new List<Particle>();
 
 
@@ -72,29 +73,33 @@ namespace Курсач
             particle.SpeedY -= gY * Power / r2;
         }
     }
-
-
     
     public class Cyrcle : IImpactPoint
     {
         public Color col = Color.Green;
         public int Raduis = 30;
+        public int count = 0;
         public override void ImpactParticle(Particle particle)
         {
             float gX = X - particle.X;
             float gY = Y - particle.Y;
             double r2 = Math.Sqrt(gX * gX + gY * gY);
-
+            
             if (r2 - particle.Radius <= Raduis)
             {
                 particle.color1 = col;
                 particle.color2 = col;
-                count++;
+                par.Add(particle);
+                count = par.Count;
             }
             else if (r2 - particle.Radius > Raduis)
             {
                 particle.color1 = particle.FromColor;
                 particle.color2 = particle.ToColor;
+            }
+            if (par.Count == 0)
+            {
+                count = 0;
             }
         }
         public override void Render(Graphics g)
