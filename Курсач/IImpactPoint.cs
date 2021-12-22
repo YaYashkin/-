@@ -9,7 +9,7 @@ namespace Курсач
 {
     public abstract class IImpactPoint
     {
-        public List<Particle> par = new List<Particle>();
+        
         public float X;
         public float Y;
         
@@ -76,6 +76,7 @@ namespace Курсач
     
     public class Cyrcle : IImpactPoint
     {
+        public List<Particle> par = new List<Particle>();
         public Color col = Color.Green;
         public int Raduis = 30;
         public int count = 0;
@@ -84,7 +85,6 @@ namespace Курсач
             float gX = X - particle.X;
             float gY = Y - particle.Y;
             double r2 = Math.Sqrt(gX * gX + gY * gY);
-            
             if (r2 - particle.Radius <= Raduis)
             {
                 particle.color1 = col;

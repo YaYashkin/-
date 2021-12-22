@@ -37,8 +37,8 @@ namespace Курсач
 
         public void UpdateState() //Обновление логики
         {
+            cyrcle.par.Clear();
             int particlesToCreate = ParticlesPerTick;//счётчик частиц за тик
-
             foreach (var particle in particles) //пересчитывание положения частиц в соответствии с их направлением движения и скоростью.
             {
                 //particle.Life -= 1;
