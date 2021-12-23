@@ -9,12 +9,10 @@ namespace Курсач
 {
     public abstract class IImpactPoint
     {
-        
         public float X;
         public float Y;
-        
-        public List<Particle> particles = new List<Particle>();
 
+        public List<Particle> particles = new List<Particle>();
 
         // абстрактный метод с помощью которого изменяутся состояние частиц
         public abstract void ImpactParticle(Particle particle);
@@ -34,7 +32,6 @@ namespace Курсач
     public class GravityPoint : IImpactPoint//круг притяжения
     {
         public int Power = 100;// сила притяжения
-
         public override void ImpactParticle(Particle particle)
         {
             float gX = X - particle.X;
@@ -109,8 +106,8 @@ namespace Курсач
                 $"{count}",
                 new Font("Colibri", 10),
                 new SolidBrush(Color.Red),
-                X-10,
-                Y+10
+                X,
+                Y
             );
         }
     }
@@ -123,6 +120,7 @@ namespace Курсач
 
         public override void ImpactParticle(Particle particle)
         {
+            
             float gX = X - particle.X;
             float gY = Y - particle.Y;
             double r = Math.Sqrt(gX * gX + gY * gY);
@@ -164,7 +162,7 @@ namespace Курсач
             var str = new StringFormat();
             str.Alignment = StringAlignment.Center;
             str.LineAlignment = StringAlignment.Center;
-            
+
             g.DrawString(
                 $"{schet}",
                 new Font("Colibri", 10),

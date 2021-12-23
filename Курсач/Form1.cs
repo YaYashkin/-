@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
+using System.Media;
 
 namespace Курсач
 {
@@ -55,6 +57,8 @@ namespace Курсач
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            label4.Text = $"{emitter.ParticlesPerTick}";
+            cyrcle.par.Clear();
             emitter.UpdateState();//обновление эмиттера
             using (var g = Graphics.FromImage(picDisplay.Image))
             {
@@ -72,7 +76,6 @@ namespace Курсач
             {
                 emitter.MousePositionX = e.X;
                 emitter.MousePositionY = e.Y;
-
                 cyrcle.X = e.X;
                 cyrcle.Y = e.Y;
             }
@@ -185,6 +188,64 @@ namespace Курсач
             colorDialog1.ShowDialog();
             cyrcle.col = colorDialog1.Color;
             button2.BackColor = cyrcle.col;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender; // приводим отправителя к элементу типа CheckBox
+            if (checkBox.Checked == true)
+            {
+                Random r = new Random();
+                this.BackColor = Color.FromArgb(r.Next(255), r.Next(255), r.Next(255));
+                button3.BackColor = Color.FromArgb(r.Next(255), r.Next(255), r.Next(255));
+            }
+            else
+            {
+                this.BackColor = DefaultBackColor;
+                button3.BackColor = DefaultBackColor;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Реализовать точку-счетчик частиц, попадая в которую частица умирает, а на точке пишется сколько частиц она уже собрала." +
+                "\n•при клике мышкой добавлять новый счетчик" +
+                "\n•при клике правой кнопкой мыши, удалять счетчик" +
+                "\n•при увеличении счетчика менять насыщеность цвета счетчика" +
+                "\n\nРеализовать точку-область а-ля радар" +
+                "\n•все частицы, попадающие в заданную область должны подсвечиваться как-то цветом" +
+                "\n•в центре необходимо писать количество частиц, оказавшихся в зоне действия радара" +
+                "\n•используя колесико мыши менять размеры области", "Задания");
+        }
+        public SoundPlayer sp;
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            sp = new SoundPlayer();
+            sp.Stream = Properties.Resources.Jingle;
+            CheckBox checkBox1 = (CheckBox)sender; // приводим отправителя к элементу типа CheckBox
+            if (checkBox1.Checked)
+            {
+                sp.Play();
+            }
+            else
+            {
+                sp.Stop();
+                
+            }
+        }
+
+        private void tbTick_Scroll(object sender, EventArgs e)
+        {
+            emitter.ParticlesPerTick = tbTick.Value;
+            if (tbTick.Value == 0)
+            {
+                emitter.ParticlesPerTick = 1;
+            }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            label4.Text = $"{emitter.ParticlesPerTick}";
         }
     }
 }

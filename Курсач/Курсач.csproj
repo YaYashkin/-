@@ -98,5 +98,11 @@
   <ItemGroup>
     <None Include="Resources\4.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Star.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Jingle.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -37,14 +37,12 @@ namespace Курсач
 
         public void UpdateState() //Обновление логики
         {
-            cyrcle.par.Clear();
+            //cyrcle.par.Clear();
             int particlesToCreate = ParticlesPerTick;//счётчик частиц за тик
             foreach (var particle in particles) //пересчитывание положения частиц в соответствии с их направлением движения и скоростью.
             {
-                //particle.Life -= 1;
                 if (particle.Life <= 0)
                 {
-                    ResetParticle(particle);
                     if(particlesToCreate > 0)
                     {
                         //сброс частиц = создание частиц
@@ -67,20 +65,23 @@ namespace Курсач
                     particle.SpeedY += GravitationY;
                 }
             }
-                while(particlesToCreate >= 1)
-                {
-                    particlesToCreate -= 1;
-                    var particle = CreateParticle();
-                    ResetParticle(particle);
-                    particles.Add(particle); //Добавление списка
-                }
+            while(particlesToCreate >= 1)
+            {
+                particlesToCreate -= 1;
+                var particle = CreateParticle();
+                ResetParticle(particle);
+                particles.Add(particle); //Добавление списка
+            }
         }
 
         public void Render(Graphics g) //Отрисовка
         {
             foreach (var particle in particles) //отрисовка частиц
             {
-                particle.Draw(g);
+                if (particle.Life != 0)
+                {
+                    particle.Draw(g);
+                }
             }
             foreach(var point in impactPoints)//Красный круг притяжения
             {
